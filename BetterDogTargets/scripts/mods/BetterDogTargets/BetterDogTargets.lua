@@ -1,25 +1,23 @@
-local mod = get_mod("BetterDogTargets")
+local mod = get_mod("Better Dog Targets")
 local UISettings = require("scripts/settings/ui/ui_settings")
 
 local OutlineSettings
 
-function UpdateOutlineSettings()
+local function UpdateOutlineSettings()
 	if not OutlineSettings then return
 	end
 	
 	local orig = OutlineSettings.MinionOutlineExtension.adamant_smart_tag
 	for i = 1, 4 do
-		local no = table.clone(orig)
-		local c
-		if not mod:get("use_dim_colors") then
-			c = Color["player_slot_"..i.."_bright"](255, true)
-		else
-			c = Color["player_slot_"..i](255, true)
+		local c = mod:get("player_"..i.."_color")
+		if c then
+			c = Color[c](255, true)
+			local no = table.clone(orig)
+			no.color[1] = c[2] / 255.0
+			no.color[2] = c[3] / 255.0
+			no.color[3] = c[4] / 255.0
+			OutlineSettings.MinionOutlineExtension["adamant_smart_tag"..i] = no
 		end
-		no.color[1] = c[2] / 255.0
-		no.color[2] = c[3] / 255.0
-		no.color[3] = c[4] / 255.0
-		OutlineSettings.MinionOutlineExtension["adamant_smart_tag"..i] = no
 	end
 end
 
