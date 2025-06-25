@@ -36,28 +36,24 @@ return {
 				type = "dropdown",
 				default_value = "player_slot_1_bright",
 				options = table.clone(colorOptions),
-				require_restart = true
 			},
 			{
 				setting_id = "player_2_color",
 				type = "dropdown",
 				default_value = "player_slot_2_bright",
 				options = table.clone(colorOptions),
-				require_restart = true
 			},
 			{
 				setting_id = "player_3_color",
 				type = "dropdown",
 				default_value = "player_slot_3_bright",
 				options = table.clone(colorOptions),
-				require_restart = true
 			},
 			{
 				setting_id = "player_4_color",
 				type = "dropdown",
 				default_value = "player_slot_4_bright",
 				options = table.clone(colorOptions),
-				require_restart = true
 			},
 		}
 	}
