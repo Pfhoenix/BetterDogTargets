@@ -107,6 +107,36 @@ mod:hook_require("scripts/extension_systems/smart_tag/smart_tag_system", functio
 	end)
 end)
 
+mod:hook_require("scripts/ui/hud/elements/world_markers/templates/world_marker_template_unit_threat_adamant", function(instance)
+	mod:hook_safe(instance, "on_enter", function(widget, marker, template)
+		if mod:get("hide_markers") then
+			widget.style.icon.size = { 0, 0 }
+			widget.style.icon.default_size = { 0, 0 }
+			widget.style.entry_icon_1.size = { 0, 0 }
+			widget.style.entry_icon_1.default_size = { 0, 0 }
+			widget.style.entry_icon_2.size = { 0, 0 }
+			widget.style.entry_icon_2.default_size = { 0, 0 }
+			widget.style.arrow.size = { 0, 0 }
+			widget.style.arrow.default_size = { 0, 0 }
+			widget.style.text.size = { 0, 0 }
+			widget.style.text.default_size = { 0, 0 }
+		elseif mod:get("recolor_markers") then
+			marker.data.visual_type = template.default_visual_type
+			local tagger_player = marker.data.tag_instance and marker.data.tag_instance:tagger_player()
+			local player_slot = (tagger_player or marker.data.player):slot()
+			local c = mod:get("player_"..player_slot.."_color")
+			if c then
+				c = Color[c](255, true)
+				widget.style.icon.color = table.clone(c)
+				widget.style.entry_icon_1.color = table.clone(c)
+				widget.style.entry_icon_2.color = table.clone(c)
+				widget.style.arrow.color = table.clone(c)
+				widget.style.text.text_color = table.clone(c)
+			end
+		end
+	end)
+end)
+
 --mod:hook_require("scripts/extension_systems/outline/outline_system", function(instance)
 --	mod:hook_safe(instance, "add_outline", function(self, unit, outline_name)
 --		if string.sub(outline_name, 1, -2) ~= "adamant_smart_tag" then return end

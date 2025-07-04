@@ -55,6 +55,16 @@ return {
 				default_value = "player_slot_4_bright",
 				options = table.clone(colorOptions),
 			},
+			{
+				setting_id = "hide_markers",
+				type = "checkbox",
+				default_value = false
+			},
+			{
+				setting_id = "recolor_markers",
+				type = "checkbox",
+				default_value = true
+			},
 		}
 	}
 }

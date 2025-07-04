@@ -5,9 +5,6 @@ local localizations = {
 	mod_description = {
 		en = "Changes the color of the pings dog targets to be the local color assigned to the player, so you can see who has set their dog to which targets.",
 	},
-	use_dim_colors = {
-		en = "Use Dim Colors"
-	},
 	player_1_color = {
 		en = "Player Slot 1 Color"
 	},
@@ -19,6 +16,12 @@ local localizations = {
 	},
 	player_4_color = {
 		en = "Player Slot 4 Color"
+	},
+	hide_markers = {
+		en = "Hide HUD Markers"
+	},
+	recolor_markers = {
+		en = "Recolor HUD Markers"
 	},
 }
 
