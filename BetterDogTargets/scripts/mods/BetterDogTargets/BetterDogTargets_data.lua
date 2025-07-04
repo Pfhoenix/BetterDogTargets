@@ -29,6 +29,7 @@ end)
 return {
 	name = "Better Dog Targets",
 	description = mod:localize("mod_description"),
+	allow_rehooking = true,
 	options = {
 		widgets = {
 			{
